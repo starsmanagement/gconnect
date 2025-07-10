@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G Business Support | Home</title>
+
+  <link rel="stylesheet" href="assets/libs/aos/aos.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #1a1a1a;
+      
+    }
+
+    
+      .navbar {
+        background-color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        padding: 1rem 0;
+        position: relative;
+        z-index: 1000;
+        font-family: Georgia, serif;
+        font-weight: bold;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .logo {
+        height: 50px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links li a:hover,
+      .nav-links li a.active {
+        color: #0055ff;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          background-color: #fff;
+          flex-direction: column;
+          width: 200px;
+          padding: 1rem;
+          display: none;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(to bottom, #ffffff, #f5f7fa);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #0055ff;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #444;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn.primary {
+      background: #0055ff;
+      color: white;
+    }
+
+    .btn.secondary {
+      background: #ddd;
+      color: #333;
+    }
+
+    .services-preview {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .services-preview h2 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+    }
+
+    .card h3 {
+      color: #ff6600;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 1rem;
+    }
+
+    .map-contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .map-box {
+      flex: 1 1 400px;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .contact-details {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .contact-details p {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .contact-details a {
+      color: #0055ff;
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #f9f9f9;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+    .company-glow-typing {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#typing-text {
+  font-size: 2rem;
+  font-family: serif;
+  font-weight: bold;
+  background: linear-gradient(270deg, red, yellow, green, blue);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* image Flip */
+.flip-image-section {
+    padding: 4rem 1rem;
+    background: #f5f5f5;
+    text-align: center;
+  }
+
+  .flip-image-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .flip-card {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .flip-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .flip-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .flip-image-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .image-card-section {
+  padding: 4rem 1rem;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.image-card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.image-card-heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.image-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.image-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.image-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.image-card-tag {
+  margin: 1rem auto;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+  background: linear-gradient(135deg, red, yellow, green, blue);
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <img src="assets/img/logo.svg" alt="Logo" class="logo" />
+      <nav>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/services.html">Services</a></li>
+          <li><a href="pages/careers.html">Career</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="pages/crm.html">CRM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="company-glow-typing">
+    <h2 id="typing-text"></h2>
+  </div>
+
+
+
+  <section class="hero">
+    <div class="container">
+      <h1>Powering Growth for Businesses in Digital First World</h1>
+      <p>Smarter Advertising. Seamless Support. One team to manage your marketing, development, and backend needs.</p>
+      <a href="pages/services.html" class="btn primary">Explore Services</a>
+      <a href="pages/careers.html" class="btn secondary">Apply to Join Us</a>
+    </div>
+  </section>
+
+
+  <section class="image-card-section">
+  <div class="image-card-container">
+    <h2 class="image-card-heading">Our Core Services</h2>
+    <div class="image-card-grid">
+
+      <div class="image-card" data-aos="flip-left" data-aos-duration="2000">
+        <img src="../assets/img/GA.jpg" alt="Google Ads" />
+        <div class="image-card-tag">Google Ads</div>
+      </div>
+
+      <div class="image-card" data-aos="flip-left" data-aos-duration="2000" data-aos-delay="100">
+        <img src="../assets/img/GMB.png" alt="Google My Business" />
+        <div class="image-card-tag">Google My Business</div>
+      </div>
+
+      <div class="image-card" data-aos="flip-left" data-aos-duration="2000" data-aos-delay="200">
+        <img src="../assets/img/SMM.png" alt="Social Media Marketing" />
+        <div class="image-card-tag">Social Media Marketing</div>
+      </div>
+
+      <div class="image-card" data-aos="flip-left" data-aos-duration="2000" data-aos-delay="300">
+        <img src="../assets/img/Banking.png" alt="Banking Services" />
+        <div class="image-card-tag">Banking and Insurance</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <section class="services-preview">
+    <div class="container">
+      <!-- <h2>Our Core Services</h2> -->
+      <div class="service-cards">
+        <div class="card">
+          <video src="assets/videos/digital.mp4" autoplay muted loop playsinline></video>
+          <h3>Digital Marketing</h3>
+        </div>
+        <div class="card">
+          <video src="assets/videos/web.mp4" autoplay muted loop playsinline></video>
+          <h3>Web Development</h3>
+        </div>
+        <div class="card">
+          <video src="assets/videos/backend.mp4" autoplay muted loop playsinline></video>
+          <h3>Backend Solutions</h3>
+        </div>
+        <div class="card">
+          <video src="assets/videos/staffing.mp4" autoplay muted loop playsinline></video>
+          <h3>Outsourced Staffing</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-contact-section">
+    <div class="map-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5425.901134740927!2d77.55296100568901!3d12.978216707649652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae153b848e8cad%3A0xb4347f882ecc7638!2sG%20Connect%20Solutions!5e1!3m2!1sen!2sin!4v1751748244858!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="contact-details">
+      <p><strong>Address:</strong><br>335/88, 2nd Floor, 12th Main, Dr Rajkumar Road,<br>Near Al-Bek Road, Bangalore, Karnataka 560010</p>
+      <p><strong>Phone:</strong> +91 9071861881</p>
+      <p><strong>Email:</strong> <a href="mailto:admin@gconnectsolutions.com">admin@gconnectsolutions.com</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/918310312791" target="_blank">Chat Now</a></p>
+    </div>
+  </section>
+
+  <a href="https://wa.me/919071861881" class="whatsapp-float" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
+  </a>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 G Business Support. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/libs/aos/aos.js"></script>
+  <script>AOS.init({ duration: 1000 });</script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+  <!-- Company name -->
+  <script>
+  const text = "G Business Support";
+  const typingElement = document.getElementById("typing-text");
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      typingElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 150);
+    } else {
+      setTimeout(() => {
+        typingElement.textContent = "";
+        index = 0;
+        typeWriter();
+      }, 5000); // wait 5 seconds before repeating
+    }
+  }
+
+  typeWriter();
+</script>
+
+<script>
+  AOS.init({
+    duration: 1000 // Default (individual cards override this)
+  });
+</script>
+
+
+
+
+
+</body>
+</html>

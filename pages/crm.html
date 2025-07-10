@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM | G Business Support</title>
+
+  <link rel="stylesheet" href="../assets/libs/aos/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: relative;
+      z-index: 1000;
+      font-family: Georgia, serif;
+      font-weight: bold;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #0055ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+
+    .login-section {
+      padding: 4rem 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .login-section h2 {
+      font-size: 2.2rem;
+      color: #0055ff;
+      margin-bottom: 1rem;
+    }
+
+    .login-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .login-form:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .login-form button {
+      background: linear-gradient(90deg, #ff6600, #ffd500);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .login-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    #crm-content {
+      display: none;
+      text-align: center;
+      padding: 4rem 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    #crm-content h2 {
+      font-size: 2rem;
+      color: #0055ff;
+      margin-bottom: 1rem;
+    }
+
+    .note {
+      color: #444;
+      margin-top: 1rem;
+    }
+
+    .footer {
+      background-color: #f9f9f9;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <img src="../assets/img/logo.svg" alt="Logo" class="logo" />
+      <nav>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="careers.html">Career</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="crm.html" class="active">CRM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="login-section" data-aos="zoom-in">
+      <h2>Login to CRM</h2>
+      <form id="loginForm" class="login-form">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p id="loginError" class="error-message" style="display:none;">Invalid credentials!</p>
+      </form>
+    </section>
+
+    <section id="crm-content" data-aos="fade-up">
+      <h2>CRM Dashboard – Coming Soon</h2>
+      <p>This section will host internal tools for managing client leads and project info.</p>
+      <p class="note">🔒 Access will be restricted to team members only.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 G Business Support. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>AOS.init({ duration: 1000 });</script>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    const loginForm = document.getElementById("loginForm");
+    const loginError = document.getElementById("loginError");
+    const loginSection = document.querySelector(".login-section");
+    const crmContent = document.getElementById("crm-content");
+
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "admin" && password === "1234") {
+        loginError.style.display = "none";
+        loginSection.style.display = "none";
+        crmContent.style.display = "block";
+        AOS.refresh();
+      } else {
+        loginError.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | G Business Support</title>
+
+  <link rel="stylesheet" href="../assets/libs/aos/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right,#fdfbfb, #ebedee);
+      color: #1a1a1a;
+    }
+
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: relative;
+      z-index: 1000;
+      font-family: Georgia, serif;
+      font-weight: bold;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #0055ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .services-section {
+      padding: 4rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(to right, rgb(250, 52, 2), rgb(255, 115, 0));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flipInX 1s ease both;
+    }
+
+    @keyframes flipInX {
+      0% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+      }
+      100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card:nth-child(5) {
+      grid-column: span 2;
+      justify-self: center;
+      max-width: 60%;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, red, yellow, green, blue);
+      padding: 2rem 1rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: scale(1.05); /* Zoom in */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    }
+
+    .service-card img {
+      width: 60px;
+      margin-bottom: 1rem;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.1);
+    }
+
+
+    .service-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+      color: #0c0c0b;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #070707;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card:nth-child(5) {
+        grid-column: auto;
+        max-width: 100%;
+      }
+    }
+
+    .footer {
+      background-color: #f9f9f9;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+    .image-gallery {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.image-gallery h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #0055ff;
+}
+
+.image-gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  width: 100%;
+  max-width: 360px; /* Adjust this as needed */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+    .image-card:hover img {
+      transform: scale(1.1);
+    }
+    .custom-gallery-section {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+
+  .custom-gallery-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #0055ff;
+  }
+
+  .custom-gallery-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .custom-gallery-card {
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .custom-gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .custom-gallery-card:hover img {
+    transform: scale(1.1);
+  }
+  .virtual-tour-section {
+  background: linear-gradient(to right,#fdfbfb, #ebedee);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.virtual-tour-title {
+  font-size: 2rem;
+  color: #0055ff;
+  margin-bottom: 2.5rem;
+}
+
+.virtual-tour-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.virtual-tour-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background-color: #000; /* fallback in case map fails to load */
+}
+
+.virtual-tour-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .virtual-tour-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating WhatsApp Icon -->
+  <a href="https://wa.me/919071861881" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Icon" />
+  </a>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="../assets/img/logo.svg" alt="Logo" class="logo" />
+      <nav>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="careers.html">Career</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="crm.html">CRM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services-section container">
+    <h2 data-aos="flip-left">Our Services</h2>
+
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+        <img src="https://img.icons8.com/?size=100&id=7Xdye3V7xiD1&format=png&color=000000" alt="Marketing Icon" />
+        <h3>Digital Marketing</h3>
+        <p>Run effective campaigns on Google, Facebook, and Instagram with detailed performance tracking and optimization.</p>
+      </div>
+
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://img.icons8.com/?size=100&id=A2QHRB6UBpA6&format=png&color=000000" alt="Web Dev Icon" />
+        <h3>Web Development</h3>
+        <p>We build clean, fast, and responsive websites — custom-coded or WordPress-based — tailored to your brand.</p>
+      </div>
+
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://img.icons8.com/?size=100&id=Zh3EQfzwFUbT&format=png&color=000000" alt="Backend Icon" />
+        <h3>Backend Solutions</h3>
+        <p>Automate your workflows and manage client data securely with lightweight CRM tools and backend integrations.</p>
+      </div>
+
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://img.icons8.com/?size=100&id=LRA7sc7gTMQu&format=png&color=000000" alt="Staffing Icon" />
+        <h3>Staffing Services</h3>
+        <p>Get trained associates, interns, and project teams to support marketing, operations, or development tasks.</p>
+      </div>
+
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://img.icons8.com/?size=100&id=j73wEfY74Z0f&format=png&color=000000" alt="Consulting Icon" />
+        <h3>Consulting</h3>
+        <p>Need help with planning or launching your business digitally? We offer flexible consulting and tech setup services.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Websites -->
+  <section class="image-gallery" data-aos="fade-up">
+    <h3>Websites</h3>
+    <div class="image-gallery-container">
+
+      <a href="https://www.royalluxthaispa.com/" target="_blank">
+        <div class="image-card" data-aos="zoom-in" data-aos-duration="2000">
+          <img src="../assets/img/web1.png" alt="Sample 1">
+        </div>
+      </a>
+
+      <div class="image-card" data-aos="zoom-in" data-aos-duration="2000">
+        <img src="../assets/img/web2.png" alt="Sample 2">
+      </div>
+
+      <a href="https://manish-enterprise.com/" target="_blank">
+        <div class="image-card" data-aos="zoom-in" data-aos-duration="2000">
+          <img src="../assets/img/web3.png" alt="Sample 3">
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+
+    <section class="virtual-tour-section" data-aos="fade-up">
+      <h3 class="virtual-tour-title">Virtual Tour View (360%)</h3>
+      <div class="virtual-tour-grid">
+        <div class="virtual-tour-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!4v1752155651634!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ0hqYTJzeEFF!2m2!1d55.95341976325786!2d-3.195545508168915!3f145.97679346403055!4f0.2326694866455341!5f1.9137695287847554"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="virtual-tour-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!4v1752155555928!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRFI1dlhzVUE.!2m2!1d12.99104018573691!2d77.688115133016!3f287.59187801904255!4f-6.099165607686956!5f0.4000000000000002"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="virtual-tour-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!4v1752155737336!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDRpNHlTWWc.!2m2!1d12.93494536602734!2d77.62287987665377!3f352.73080475325946!4f-6.726554724519843!5f0.4000000000000002"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="virtual-tour-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!4v1752156547265!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRHJfZjdDbHdF!2m2!1d13.0645354890681!2d77.63333021300964!3f277.8942663753982!4f-5.250173869931672!5f0.4000000000000002"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="custom-gallery-section" data-aos="fade-up">
+      <h3 class="custom-gallery-title">Logo Design</h3>
+      <div class="custom-gallery-wrapper">
+        <div class="custom-gallery-card">
+          <img src="../assets/img/logo1.jpg" alt="Sample 1" />
+        </div>
+        <div class="custom-gallery-card">
+          <img src="../assets/img/logo2.jpeg" alt="Sample 2" />
+        </div>
+        <div class="custom-gallery-card">
+          <img src="../assets/img/logo3.jpeg" alt="Sample 3" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Foods -->
+
+    <section class="custom-gallery-section" data-aos="fade-up">
+      <h3 class="custom-gallery-title">Food Photography</h3>
+      <div class="custom-gallery-wrapper">
+        <div class="custom-gallery-card">
+          <img src="../assets/img/food1.jpg" alt="Sample 1" />
+        </div>
+        <div class="custom-gallery-card">
+          <img src="../assets/img/food2.jpg" alt="Sample 2" />
+        </div>
+        <div class="custom-gallery-card">
+          <img src="../assets/img/food3.jpg" alt="Sample 3" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Product Photos -->
+
+
+    <section class="custom-gallery-section" data-aos="fade-up">
+      <h3 class="custom-gallery-title">Product Photography</h3>
+      <div class="custom-gallery-wrapper">
+        <div class="custom-gallery-card">
+          <img src="../assets/img/pro1.jpg" alt="Sample 1" />
+        </div>
+        <div class="custom-gallery-card">
+          <img src="../assets/img/pro2.jpg" alt="Sample 2" />
+        </div>
+        <div class="custom-gallery-card">
+          <img src="../assets/img/pro3.jpg" alt="Sample 3" />
+        </div>
+      </div>
+    </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 G Business Support. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/libs/aos/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>

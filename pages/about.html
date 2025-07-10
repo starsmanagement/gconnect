@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | G Business Support</title>
+
+  <link rel="stylesheet" href="../assets/libs/aos/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #1a1a1a;
+    }
+
+    /* Navbar */
+    
+     .navbar {
+      background-color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: relative;
+      z-index: 1000;
+      font-family: Georgia, serif;
+      font-weight: bold;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #0055ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+
+    /* About Section */
+    .about-section {
+      padding: 4rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 2.5rem;
+      color: #0055ff;
+      margin-bottom: 1rem;
+    }
+
+    .about-section p {
+      color: #444;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      margin: 2rem 0;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-values {
+      margin-top: 3rem;
+      text-align: left;
+    }
+
+    .about-values h3 {
+      color: #0055ff;
+      margin-bottom: 1rem;
+    }
+
+    .about-values ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .about-values ul li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .about-values ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #ff6600;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: #f9f9f9;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+    .slider-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+
+    .slider-track {
+      display: flex;
+      width: max-content;
+      animation: slideLeft 10s linear infinite;
+    }
+
+    .slider-track img {
+      height: 300px;
+      width: auto;
+      margin-right: 20px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    /* Animation */
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+   }
+
+   /* parners */
+
+  .partner-scroll-section {
+    padding: 4rem 1rem;
+    background: #f5f7fa;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .partner-scroll-heading {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #0055ff;
+  }
+
+  .partner-slider-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .partner-slider-track {
+    display: flex;
+    gap: 2rem;
+    animation: partnerScrollLoop 20s linear infinite;
+  }
+
+  .partner-slider-track img {
+    height: 120px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .partner-slider-track img:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes partnerScrollLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Floating WhatsApp Icon -->
+  <a href="https://wa.me/919071861881" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Icon" />
+  </a>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="../assets/img/logo.svg" alt="Logo" class="logo" />
+      <nav>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="careers.html">Career</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="crm.html">CRM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <p><strong>G Business Support</strong> is a full-stack marketing and operations agency helping startups and SMEs grow through data-driven campaigns, modern websites, and smart staffing.</p>
+      <p data-aos="fade-up" data-aos-delay="100">
+        From launching ad campaigns to managing backend workflows, our mission is to support digital-first businesses with scalable and streamlined solutions. We’re not just a vendor — we’re your extended growth team.
+      </p>
+      
+      <div class="about-values" data-aos="fade-up" data-aos-delay="300">
+        <h3>Our Core Values</h3>
+        <ul>
+          <li>Client-First Approach</li>
+          <li>Transparent Communication</li>
+          <li>Remote & Scalable Delivery</li>
+          <li>Modern Tools & Automation</li>
+        </ul>
+      </div>
+
+
+      <section class="partner-scroll-section" data-aos="fade-up">
+        <h2 class="partner-scroll-heading">Our Partners</h2>
+        <div class="partner-slider-wrapper">
+          <div class="partner-slider-track">
+            <img src="../assets/img/p1.jpg" alt="Partner 1" loading="lazy" />
+            <img src="../assets/img/p2.jpeg" alt="Partner 2" loading="lazy" />
+            <img src="../assets/img/p4.jpeg" alt="Partner 3" loading="lazy" />
+            <img src="../assets/img/p5.jpg" alt="Partner 4" loading="lazy" />
+            <img src="../assets/img/p6.png" alt="Partner 5" loading="lazy" />
+            <img src="../assets/img/p7.png" alt="Partner 6" loading="lazy" />
+            <img src="../assets/img/p3.png" alt="Partner 7" loading="lazy" />
+            <img src="../assets/img/p8.jpg" alt="Partner 7" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+
+
+      <div class="about-image" data-aos="zoom-in" data-aos-delay="300">
+        <div class="slider-wrapper">
+          <div class="slider-track">
+            <img src="../assets/img/360.jpg" alt="Team 1" loading="lazy" />
+            <img src="../assets/img/food.jpg" alt="Team 2" loading="lazy" />
+            <img src="../assets/img/product.jpg" alt="Team 3" loading="lazy" />
+            <img src="../assets/img/webdesign.jpg" alt="Team 1 repeat" loading="lazy" />
+            <img src="../assets/img/logodesign.jpg" alt="Team 2 repeat" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 G Business Support. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/libs/aos/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
